@@ -60,7 +60,7 @@ export function HeroSection() {
     : "/placeholder.svg?height=800&width=1200"
 
   return (
-    <div className="relative h-[70vh] overflow-hidden">
+    <div className="relative h-[70vh] overflow-hidden text-center sm:text-start mx-auto">
       <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${backdropUrl})` }}>
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
       </div>
@@ -69,7 +69,7 @@ export function HeroSection() {
         <div className="max-w-2xl">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">{featuredMovie.title}</h1>
 
-          <div className="flex items-center space-x-4 mb-6">
+          <div className="flex items-center justify-center sm:justify-start space-x-4 mb-6">
             <div className="flex items-center space-x-1">
               <Star className="text-yellow-400 fill-current" size={20} />
               <span className="text-white font-medium">{featuredMovie.vote_average.toFixed(1)}</span>
@@ -79,7 +79,7 @@ export function HeroSection() {
 
           <p className="text-gray-200 text-lg mb-8 leading-relaxed">{featuredMovie.overview}</p>
 
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 justify-center mx-auto">
             <Link href={`/movies/${featuredMovie.id}`}>
               <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
                 <Play className="mr-2" size={20} />
@@ -146,17 +146,17 @@ export function TrendingMovies() {
 
   return (
     <section className="container mx-auto px-4 py-12">
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex sm:items-center flex-col sm:flex-row sm:flex-wrap justify-between mb-8 gap-4">
         <div className="flex items-center space-x-3">
           <TrendingUp className="text-purple-400" size={28} />
           <h2 className="text-3xl font-bold text-white">Trending This Week</h2>
         </div>
-        <Button variant="outline" className="border-purple-500 text-purple-300 hover:bg-purple-500/20 bg-transparent hover:text-white">
+        <Button variant="outline" className="border-purple-500 text-purple-300 hover:bg-purple-500/20 bg-transparent hover:text-white w-fit">
           View All
         </Button>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
@@ -208,17 +208,17 @@ export function PopularMovies() {
 
   return (
     <section className="container mx-auto px-4 py-12">
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex sm:items-center flex-col sm:flex-row sm:flex-wrap justify-between mb-8 gap-4">
         <div className="flex items-center space-x-3">
           <Flame className="text-orange-400" size={28} />
           <h2 className="text-3xl font-bold text-white">Popular Movies</h2>
         </div>
-        <Button variant="outline" className="border-orange-500 text-orange-300 hover:bg-orange-500/20 bg-transparent hover:text-white">
+        <Button variant="outline" className="border-orange-500 text-orange-300 hover:bg-orange-500/20 bg-transparent hover:text-white w-fit">
           View All
         </Button>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
@@ -270,17 +270,17 @@ export function TopRatedMovies() {
 
   return (
     <section className="container mx-auto px-4 py-12">
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex sm:items-center flex-col sm:flex-row sm:flex-wrap justify-between mb-8 gap-4">
         <div className="flex items-center space-x-3">
           <Award className="text-yellow-400" size={28} />
           <h2 className="text-3xl font-bold text-white">Top Rated Movies</h2>
         </div>
-        <Button variant="outline" className="border-yellow-500 text-yellow-300 hover:bg-yellow-500/20 bg-transparent hover:text-white">
+        <Button variant="outline" className="border-yellow-500 text-yellow-300 hover:bg-yellow-500/20 bg-transparent hover:text-white w-fit">
           View All
         </Button>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
@@ -332,17 +332,17 @@ export function UpcomingMovies() {
 
   return (
     <section className="container mx-auto px-4 py-12">
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex sm:items-center flex-col sm:flex-row sm:flex-wrap justify-between mb-8 gap-4">
         <div className="flex items-center space-x-3">
           <Clock className="text-blue-400" size={28} />
           <h2 className="text-3xl font-bold text-white">Coming Soon</h2>
         </div>
-        <Button variant="outline" className="border-blue-500 text-blue-300 hover:bg-blue-500/20 bg-transparent hover:text-white">
+        <Button variant="outline" className="border-blue-500 text-blue-300 hover:bg-blue-500/20 bg-transparent hover:text-white w-fit">
           View All
         </Button>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
@@ -409,12 +409,28 @@ export function GenreMarqueeSection() {
         <p className="text-gray-300 text-lg">Discover movies by your favorite genres</p>
       </div>
 
-      <Marquee pauseOnHover className="[--duration:25s]">
-        {firstRow.map((genre) => (
-          <GenreCard key={genre.id} {...genre} />
-        ))}
-      </Marquee>
+      <div className="relative overflow-hidden">
+        <Marquee pauseOnHover className="[--duration:25s]">
+          {firstRow.map((genre) => (
+            <GenreCard key={genre.id} {...genre} />
+          ))}
+        </Marquee>
+
+        <style jsx>{`
+  .fade-right {
+    background: linear-gradient(to left, rgba(42, 30, 75, 1), rgba(15, 23, 42, 0));
+  }
+  .fade-left {
+    background: linear-gradient(to right, rgba(87, 18, 135, 2), rgba(15, 23, 42, 0));
+  }
+`}</style>
+
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-42 fade-left" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-42 fade-right" />
+
+      </div>
     </section>
+
   );
 }
 

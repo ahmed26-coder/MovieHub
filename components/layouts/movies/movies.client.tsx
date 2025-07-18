@@ -61,7 +61,7 @@ export function SearchAndFilters() {
   const years = Array.from({ length: 50 }, (_, i) => (currentYear - i).toString())
 
   return (
-    <div className="space-y-6 mb-10">
+    <div className="relative space-y-6 mb-10">
       <Card className="bg-slate-800/50 border-slate-700 shadow-lg rounded-xl">
         <CardContent className="p-6">
           <div className="flex flex-wrap gap-4 items-center">
@@ -89,75 +89,80 @@ export function SearchAndFilters() {
           </div>
         </CardContent>
       </Card>
-
       {showFilters && (
-        <Card className="bg-slate-800/50 border-slate-700 rounded-xl shadow-sm animate-fade-in">
-          <CardContent className="p-6">
-            <div className="grid md:grid-cols-4 gap-4">
-              <div>
-                <label className="text-sm text-gray-300 block mb-2">Genre</label>
-                <Select value={selectedGenre} onValueChange={setSelectedGenre}>
-                  <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
-                    <SelectValue placeholder="All Genres" />
-                  </SelectTrigger>
-                  <SelectContent className="bg-slate-700 border-slate-600 text-white">
-                    <SelectItem value="all">All Genres</SelectItem>
-                    {genres.map((g) => (
-                      <SelectItem key={g.id} value={g.id.toString()}>
-                        {g.name}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+        <div className="absolute top-full right-0 w-[330px] z-50 mt-4">
+          <Card className="bg-slate-800/90 border border-slate-700 rounded-xl shadow-xl animate-fade-in">
+            <CardContent className="p-6">
+              <div className="grid gap-4">
+                <div>
+                  <label className="text-sm text-gray-300 block mb-2">Genre</label>
+                  <Select value={selectedGenre} onValueChange={setSelectedGenre}>
+                    <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
+                      <SelectValue placeholder="All Genres" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-slate-700 border-slate-600 text-white">
+                      <SelectItem value="all">All Genres</SelectItem>
+                      {genres.map((g) => (
+                        <SelectItem key={g.id} value={g.id.toString()}>
+                          {g.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div>
+                  <label className="text-sm text-gray-300 block mb-2">Year</label>
+                  <Select value={selectedYear} onValueChange={setSelectedYear}>
+                    <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
+                      <SelectValue placeholder="All Years" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-slate-700 border-slate-600 text-white">
+                      <SelectItem value="all">All Years</SelectItem>
+                      {years.map((year) => (
+                        <SelectItem key={year} value={year}>
+                          {year}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div>
+                  <label className="text-sm text-gray-300 block mb-2">Sort By</label>
+                  <Select value={sortBy} onValueChange={setSortBy}>
+                    <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent className="bg-slate-700 border-slate-600 text-white">
+                      <SelectItem value="popularity.desc">Most Popular</SelectItem>
+                      <SelectItem value="vote_average.desc">Highest Rated</SelectItem>
+                      <SelectItem value="release_date.desc">Newest First</SelectItem>
+                      <SelectItem value="release_date.asc">Oldest First</SelectItem>
+                      <SelectItem value="title.asc">Title A-Z</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div className="flex items-end gap-2">
+                  <Button onClick={applyFilters} className="flex-1 bg-purple-600 hover:bg-purple-700">
+                    Apply
+                  </Button>
+                  <Button
+                    variant="outline"
+                    onClick={clearFilters}
+                    className="border-slate-600 text-black hover:text-white hover:bg-slate-700"
+                  >
+                    <X size={16} />
+                  </Button>
+                </div>
               </div>
-              <div>
-                <label className="text-sm text-gray-300 block mb-2">Year</label>
-                <Select value={selectedYear} onValueChange={setSelectedYear}>
-                  <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
-                    <SelectValue placeholder="All Years" />
-                  </SelectTrigger>
-                  <SelectContent className="bg-slate-700 border-slate-600 text-white">
-                    <SelectItem value="all">All Years</SelectItem>
-                    {years.map((year) => (
-                      <SelectItem key={year} value={year}>
-                        {year}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-              <div>
-                <label className="text-sm text-gray-300 block mb-2">Sort By</label>
-                <Select value={sortBy} onValueChange={setSortBy}>
-                  <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent className="bg-slate-700 border-slate-600 text-white">
-                    <SelectItem value="popularity.desc">Most Popular</SelectItem>
-                    <SelectItem value="vote_average.desc">Highest Rated</SelectItem>
-                    <SelectItem value="release_date.desc">Newest First</SelectItem>
-                    <SelectItem value="release_date.asc">Oldest First</SelectItem>
-                    <SelectItem value="title.asc">Title A-Z</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="flex items-end gap-2">
-                <Button onClick={applyFilters} className="flex-1 bg-purple-600 hover:bg-purple-700">
-                  Apply
-                </Button>
-                <Button
-                  variant="outline"
-                  onClick={clearFilters}
-                  className="border-slate-600 text-black hover:text-white hover:bg-slate-700"
-                >
-                  <X size={16} />
-                </Button>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </div>
       )}
     </div>
+
   )
 }
 
@@ -224,7 +229,7 @@ export function MoviesGrid() {
 
   return (
     <div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
         {movies.map((movie) =>
           movie.poster_path ? <MovieCard key={movie.id} movie={movie} /> : null
         )}

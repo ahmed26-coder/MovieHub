@@ -52,7 +52,7 @@ export function Navbar() {
             <span className="text-xl font-bold text-white">MovieHub</span>
           </Link>
 
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href} className="text-gray-300 hover:text-white transition-colors">
                 {link.label}
@@ -60,7 +60,7 @@ export function Navbar() {
             ))}
           </div>
 
-          <form onSubmit={handleSearch} className="hidden md:flex items-center space-x-2">
+          <form onSubmit={handleSearch} className="hidden lg:flex items-center space-x-2">
             <div className="relative">
               <Input
                 type="text"
@@ -75,13 +75,13 @@ export function Navbar() {
               Search
             </Button>
           </form>
-          <Button variant="ghost" size="sm" className="md:hidden border p-2 text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <Button variant="ghost" size="sm" className="lg:hidden border p-2 text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </Button>
         </div>
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-slate-800">
-            <div className="space-y-4">
+          <div className="lg:hidden py-4 border-t border-slate-800">
+            <div className="space-y-4 mx-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}

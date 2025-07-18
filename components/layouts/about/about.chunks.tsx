@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Film, Users, Star, Zap, Globe, Heart } from "lucide-react"
+import { TestimonialsCarousel } from "./about.client"
 
 export default function AboutPage() {
   return (
@@ -116,6 +117,32 @@ export default function AboutPage() {
         </Card>
       </div>
 
+      <div className="mb-16">
+        <h2 className="text-3xl font-bold text-white mb-8 text-center">How It Works</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div>
+            <Film className="mx-auto text-purple-400" size={40} />
+            <h3 className="text-white mt-4 font-semibold">Explore</h3>
+            <p className="text-gray-300">Browse thousands of movies from various genres and countries.</p>
+          </div>
+          <div>
+            <Star className="mx-auto text-yellow-400" size={40} />
+            <h3 className="text-white mt-4 font-semibold">Rate</h3>
+            <p className="text-gray-300">Check ratings and reviews before watching.</p>
+          </div>
+          <div>
+            <Zap className="mx-auto text-green-400" size={40} />
+            <h3 className="text-white mt-4 font-semibold">Watch Trailer</h3>
+            <p className="text-gray-300">Preview the movie with high-quality trailers.</p>
+          </div>
+          <div>
+            <Heart className="mx-auto text-red-400" size={40} />
+            <h3 className="text-white mt-4 font-semibold">Save</h3>
+            <p className="text-gray-300">Add favorites and build your own movie list.</p>
+          </div>
+        </div>
+      </div>
+
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
         <div className="text-center">
           <div className="text-4xl font-bold text-purple-400 mb-2">500K+</div>
@@ -134,7 +161,24 @@ export default function AboutPage() {
           <div className="text-gray-300">Support</div>
         </div>
       </div>
-
+      <section className=" relative overflow-hidden">
+        <div className=" max-w-7xl mx-auto w-full ">
+          <div className="max-w-3xl mx-auto">
+            <p className="bg-black/10 text-purple-300 rounded-lg text-sm w-fit mx-auto px-3 py-1">
+              Customer Reviews
+            </p>
+            <p className="text-center text-3xl sm:text-5xl font-bold text-white my-4">
+              What our customers say
+            </p>
+            <p className="text-center text-purple-200 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              We pride ourselves on the long-term relationships we have built with our clients.
+            </p>
+          </div>
+          <div className=" mt-10">
+            <TestimonialsCarousel />
+          </div>
+        </div>
+      </section>
       <Card className="bg-gradient-to-r from-blue-900/50 to-purple-900/50 border-blue-500/20 py-5">
         <CardHeader>
           <CardTitle className="text-3xl text-white">Powered by TMDB</CardTitle>
@@ -156,3 +200,5 @@ export default function AboutPage() {
     </div>
   )
 }
+
+

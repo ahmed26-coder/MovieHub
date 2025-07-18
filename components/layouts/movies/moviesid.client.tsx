@@ -5,9 +5,10 @@ import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Star, Calendar, Clock, Play, Heart, Share } from "lucide-react"
-import { MovieCard } from "@/lib/movie-card"
+import { Star, Calendar, Clock, Play, Heart, Share, Clapperboard } from "lucide-react"
+
 import { toast } from "sonner"
+import { MovieCard } from "@/lib/movie-card"
 
 interface MovieDetailsProps {
   movieId: string
@@ -55,7 +56,7 @@ export function MovieDetails({ movieId }: MovieDetailsProps) {
 
     try {
       let updatedFavorites: number[]
-      
+
       if (isFavorite) {
         updatedFavorites = favorites.filter((id: number) => id !== Number(movieId))
         toast("Removed from Favorites")
@@ -200,9 +201,8 @@ export function MovieDetails({ movieId }: MovieDetailsProps) {
                 size="lg"
                 variant="outline"
                 onClick={toggleFavorite}
-                className={`border-white hover:bg-white bg-transparent ${
-                  isFavorite ? "text-red-500 border-red-500" : "text-white"
-                }`}
+                className={`border-white hover:bg-white bg-transparent ${isFavorite ? "text-red-500 border-red-500" : "text-white"
+                  }`}
               >
                 <Heart
                   className="mr-2"
@@ -306,11 +306,10 @@ export function MovieTrailer({ movieId }: MovieTrailerProps) {
   const mainTrailer = videos[0]
 
   return (
-    <div className="py-8 max-w-7xl mx-auto ">
+    <div className="py-8 max-w-7xl mx-auto px-8 ">
       <h2 className="text-2xl font-bold text-white mb-6">Trailers & Videos</h2>
 
-      <div className="grid lg:grid-cols-3 gap-6">
-        {/* Main Trailer */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2">
           <Card className="bg-slate-800/50 border-slate-700">
             <CardContent className="p-0">
@@ -325,9 +324,7 @@ export function MovieTrailer({ movieId }: MovieTrailerProps) {
             </CardContent>
           </Card>
         </div>
-
-        {/* Other Videos */}
-        <div className="space-y-4">
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4 h-fit ">
           {videos.slice(1, 4).map((video) => (
             <Card
               key={video.id}
@@ -410,10 +407,12 @@ export function SimilarMovies({ movieId }: SimilarMoviesProps) {
   }
 
   return (
-    <div className="py-8 max-w-7xl mx-auto">
-      <h2 className="text-2xl font-bold text-white mb-6">Similar Movies</h2>
-
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+    <div className="py-8 px-5 max-w-7xl mx-auto">
+      <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+        <Clapperboard className="text-purple-400 w-8 h-8" />
+        Similar Movies
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
