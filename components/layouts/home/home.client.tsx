@@ -12,8 +12,6 @@ import { Clock } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Marquee } from "@/components/magicui/marquee"
 
-
-
 interface Movie {
   id: string
   title: string
@@ -415,19 +413,6 @@ export function GenreMarqueeSection() {
             <GenreCard key={genre.id} {...genre} />
           ))}
         </Marquee>
-
-        <style jsx>{`
-  .fade-right {
-    background: linear-gradient(to left, rgba(42, 30, 75, 1), rgba(15, 23, 42, 0));
-  }
-  .fade-left {
-    background: linear-gradient(to right, rgba(87, 18, 135, 2), rgba(15, 23, 42, 0));
-  }
-`}</style>
-
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-42 fade-left" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-42 fade-right" />
-
       </div>
     </section>
 
