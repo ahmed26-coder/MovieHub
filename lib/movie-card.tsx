@@ -20,23 +20,23 @@ interface MovieCardProps {
 export function MovieCard({ movie }: MovieCardProps) {
   const posterUrl = movie.poster_path
     ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-    : "/placeholder.svg?height=750&width=500"
+    : "/images/placeholder-2-3.jpg"
 
   const year = movie.release_date
     ? new Date(movie.release_date).getFullYear()
     : "Unknown"
 
   return (
-    <Link className=" max-w-7xl mx-auto " href={`/movies/${movie.id}`}>
+    <Link href={`/movies/${movie.id}`} className="block w-full max-w-[300px] mx-auto">
       <Card className="bg-slate-800/50 border border-slate-700 hover:border-purple-500/50 transition-all duration-300 hover:scale-[1.03] group rounded-2xl overflow-hidden">
         <CardContent className="p-0">
-          <div className="relative">
+          <div className="relative w-full aspect-[2/3] overflow-hidden">
             <Image
               src={posterUrl}
               alt={movie.title}
-              width={500}
-              height={750}
-              className="w-full aspect-[2/3] object-cover transition-transform duration-300 group-hover:scale-105"
+              fill
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              sizes="(max-width: 640px) 100vw, 300px"
               priority
             />
             <div className="absolute top-2 right-2 space-y-2 space-x-1">

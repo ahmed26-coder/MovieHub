@@ -406,7 +406,7 @@ export function SimilarMovies({ movieId }: SimilarMoviesProps) {
   }
 
   return (
-    <div className="py-8 px-5 max-w-7xl mx-auto">
+    <div className="py-8 px-5 max-w-7xl mx-auto ">
       <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
         <Clapperboard className="text-purple-400 w-8 h-8" />
         Similar Movies
