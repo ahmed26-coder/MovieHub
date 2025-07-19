@@ -63,7 +63,7 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
+      <div className="relative z-10 container max-w-7xl mx-auto px-4 h-full flex items-center">
         <div className="max-w-2xl">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">{featuredMovie.title}</h1>
 
@@ -143,7 +143,7 @@ export function TrendingMovies() {
   }
 
   return (
-    <section className="container mx-auto px-4 py-12">
+    <section className="container mx-auto px-4 py-12 max-w-7xl">
       <div className="flex sm:items-center flex-col sm:flex-row sm:flex-wrap justify-between mb-8 gap-4">
         <div className="flex items-center space-x-3">
           <TrendingUp className="text-purple-400" size={28} />
@@ -154,7 +154,7 @@ export function TrendingMovies() {
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
@@ -205,7 +205,7 @@ export function PopularMovies() {
   }
 
   return (
-    <section className="container mx-auto px-4 py-12">
+    <section className="container max-w-7xl mx-auto px-4 py-12">
       <div className="flex sm:items-center flex-col sm:flex-row sm:flex-wrap justify-between mb-8 gap-4">
         <div className="flex items-center space-x-3">
           <Flame className="text-orange-400" size={28} />
@@ -216,7 +216,7 @@ export function PopularMovies() {
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
@@ -267,7 +267,7 @@ export function TopRatedMovies() {
   }
 
   return (
-    <section className="container mx-auto px-4 py-12">
+    <section className="container max-w-7xl mx-auto px-4 py-12">
       <div className="flex sm:items-center flex-col sm:flex-row sm:flex-wrap justify-between mb-8 gap-4">
         <div className="flex items-center space-x-3">
           <Award className="text-yellow-400" size={28} />
@@ -278,7 +278,7 @@ export function TopRatedMovies() {
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
@@ -329,7 +329,7 @@ export function UpcomingMovies() {
   }
 
   return (
-    <section className="container mx-auto px-4 py-12">
+    <section className="container max-w-7xl mx-auto px-4 py-12">
       <div className="flex sm:items-center flex-col sm:flex-row sm:flex-wrap justify-between mb-8 gap-4">
         <div className="flex items-center space-x-3">
           <Clock className="text-blue-400" size={28} />
@@ -340,7 +340,7 @@ export function UpcomingMovies() {
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
@@ -425,7 +425,7 @@ export function GenreMarqueeSection() {
 
 export function FeaturedSection() {
   return (
-    <section className="container mx-auto px-4 py-16">
+    <section className="container max-w-7xl mx-auto px-4 py-16">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold text-white mb-4">Why Choose MovieHub?</h2>
         <p className="text-gray-300 text-lg max-w-2xl mx-auto">
@@ -466,7 +466,7 @@ export function FeaturedSection() {
         <Card className="bg-gradient-to-br from-orange-900/50 to-red-900/50 border-orange-500/20 py-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-red-700/30 hover:brightness-110">
           <CardHeader>
             <Zap className="text-orange-400 mb-2" size={32} />
-            <CardTitle className="text-white">Fast Search</CardTitle>
+            <CardTitle className="text-white ">Fast Search</CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-gray-300">Lightning-fast search with advanced filtering options</p>

@@ -27,7 +27,7 @@ export function MovieCard({ movie }: MovieCardProps) {
     : "Unknown"
 
   return (
-    <Link href={`/movies/${movie.id}`}>
+    <Link className=" max-w-7xl mx-auto " href={`/movies/${movie.id}`}>
       <Card className="bg-slate-800/50 border border-slate-700 hover:border-purple-500/50 transition-all duration-300 hover:scale-[1.03] group rounded-2xl overflow-hidden">
         <CardContent className="p-0">
           <div className="relative">

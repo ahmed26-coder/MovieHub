@@ -7,7 +7,7 @@ import { categories, quickLinks, socials } from "@/constent"
 export function Footer() {
   return (
     <footer className="bg-slate-900 border-t border-slate-800 mt-auto">
-      <div className="container mx-auto px-4 py-6">
+      <div className="container max-w-7xl mx-auto px-4 py-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <Link href="/" className="flex items-center space-x-2">

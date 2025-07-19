@@ -148,7 +148,7 @@ export function MovieDetails({ movieId }: MovieDetailsProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/70 to-transparent"></div>
       </div>
 
-      <div className="container mx-auto px-4 relative -mt-32 z-10">
+      <div className="container max-w-7xl mx-auto px-4 relative -mt-32 z-10">
         <div className="grid lg:grid-cols-3 gap-8">
           <div className="lg:col-span-1">
             <Image

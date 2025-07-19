@@ -61,7 +61,7 @@ export function SearchAndFilters() {
   const years = Array.from({ length: 50 }, (_, i) => (currentYear - i).toString())
 
   return (
-    <div className="relative space-y-6 mb-10">
+    <div className="relative space-y-6 max-w-7xl mx-auto mb-10">
       <Card className="bg-slate-800/50 border-slate-700 shadow-lg rounded-xl">
         <CardContent className="p-6">
           <div className="flex flex-wrap gap-4 items-center">
@@ -247,7 +247,7 @@ export function MoviesGrid() {
 
       {page < totalPages && (
         <div className="text-center">
-          <Button onClick={loadMore} disabled={loading} className="bg-purple-600 hover:bg-purple-700">
+          <Button onClick={loadMore} disabled={loading} className="bg-purple-600 hover:bg-purple-700 mt-8">
             {loading ? "Loading..." : "Load More"}
           </Button>
         </div>
