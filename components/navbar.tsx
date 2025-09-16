@@ -144,7 +144,7 @@ export function Navbar() {
         visible ? "translate-y-0" : "-translate-y-full"
       } ${hasShadow ? "shadow-md" : ""} bg-slate-900/95 backdrop-blur-sm border-b border-slate-800`}
     >
-      <div className="container mx-auto px-4">
+      <div className="container max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center space-x-2">
             <Film className="text-purple-400" size={28} />
