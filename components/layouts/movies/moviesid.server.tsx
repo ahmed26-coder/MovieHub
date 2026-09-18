@@ -8,23 +8,6 @@ interface MovieDetailsProps {
   movieId: string
 }
 
-interface MovieDetail {
-  id: string
-  title: string
-  overview: string
-  poster_path: string | null
-  backdrop_path: string | null
-  vote_average: number
-  release_date: string
-  runtime: number
-  genres: { id: number; name: string }[]
-  production_companies: { id: number; name: string; logo_path: string | null }[]
-  budget: number
-  revenue: number
-  tagline: string
-  status: string
-}
-
 // Helper function to fetch movie data from API with caching
 async function fetchMovieData(movieId: string) {
   try {
