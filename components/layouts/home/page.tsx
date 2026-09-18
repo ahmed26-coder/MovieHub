@@ -1,5 +1,5 @@
 import React from 'react'
-import { FeaturedSection, GenreMarqueeSection, HeroSection, PopularMovies, TopRatedMovies, TrendingMovies, UpcomingMovies } from './home.client'
+import { FeaturedSection, GenreMarqueeSection, HeroSection, PopularMovies, TopRatedMovies, TrendingMovies, UpcomingMovies } from './home.server'
 
 export default function page() {
   return (

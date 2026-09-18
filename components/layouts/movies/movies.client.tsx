@@ -28,9 +28,7 @@ export function SearchAndFilters() {
   useEffect(() => {
     const fetchGenres = async () => {
       try {
-        const res = await fetch(
-          "https://api.themoviedb.org/3/genre/movie/list?api_key=902448fc43a38ed08a67a10ce457b573"
-        )
+        const res = await fetch("/data/genres.json")
         const data = await res.json()
         setGenres(data.genres || [])
       } catch (err) {
@@ -211,6 +209,16 @@ export function MoviesGrid() {
       setTotalPages(data.total_pages || 1)
     } catch (error) {
       console.error("Failed to fetch movies:", error)
+      // Fallback to static data if API fails
+      try {
+        const res = await fetch("/data/popular.json")
+        const data = await res.json()
+        const filtered = (data.results || []).filter((movie: Movie) => movie.adult === false)
+        if (currentPage === 1) setMovies(filtered)
+        else setMovies((prev) => [...prev, ...filtered])
+      } catch (staticError) {
+        console.error("Failed to load static data:", staticError)
+      }
     } finally {
       setLoading(false)
     }
